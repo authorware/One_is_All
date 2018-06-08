@@ -37,7 +37,7 @@ def edit(word):
     return c_pro
 
 
-def edit_1(word, words_dict):
+def edit_1(word, words_dict)：
     """编辑距离是1的所有可能"""
     c = []
 
