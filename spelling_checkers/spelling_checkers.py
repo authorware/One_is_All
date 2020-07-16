@@ -48,11 +48,12 @@ def edit_1(word, words_dict):
         if w in words_dict:
             c.append(w)
 
-    if len(c):
+    if len(c)
         # print('在编辑距离1中，寻找写错的单词所对应的所有正确的如下：')
         # print(c)
         # print('共:%d个' % len(c))
         print('修改后为：')
+
         return c
     else:
         return 0
@@ -68,10 +69,12 @@ def edit_2(word, words_dict):
     c = set(c)
 
     if len(c):
+
         # print('在编辑距离2中，寻找写错的单词所对应的所有正确的如下：')
         # print(c)
         # print('共:%d个' % len(c))
         print('修改后为：')
+
         return c
     else:
         return 0
@@ -81,8 +84,10 @@ def edit_0(word, words_dict):
     """直接输入正确"""
     if word in words_dict:
         c = [word]
+
         print('单词输入正确，无需改正')
         # print(c)
+
     else:
         c = 0
     return c
@@ -99,12 +104,14 @@ def correct(word, words_dict):
     即p(c/w)
     """
     keys = edit_0(word, words_dict) or edit_1(word, words_dict) or edit_2(word, words_dict) or [word]
+
     # print('在correct函数中,查找单词在先验中出现的次数，也就是概率如下:')
 
     new_dict = {}
     for i in keys:
         new_dict[i] = words_dict[i]  # i为keys中的每个字符串，也就是word_lists中的键名，通过键名获取其在单词库中的次数值
     sort_dict = sorted(new_dict.items(), key=lambda x: x[1], reverse=True)
+
     # print(sort_dict)
     # print('由排序结果也就是概率，得到概率最大的是:')
 
@@ -114,8 +121,10 @@ def correct(word, words_dict):
 
 if __name__ == '__main__':
     words_dict = load_data('big.txt')
+
     word = input('请输入单词:')
     reco = correct(word, words_dict)  # 'teut'是待检查的英文字符
 
     if word != reco:
         print(reco)
+
